@@ -17,7 +17,7 @@ export class ElectricityFormComponent implements OnInit {
   }
   initializeElectricityForm(): any {
     this.electricityForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
+      userName: new FormControl('NetWeb', Validators.required),
       units: new FormControl('', Validators.required),
       pricePerUnit: new FormControl('', Validators.required)
     })
@@ -45,5 +45,8 @@ export class ElectricityFormComponent implements OnInit {
         this.electricityForm.controls['pricePerUnit'].patchValue(7.71);
       }
     }
+    // else {
+    //   this.electricityForm.controls['pricePerUnit'].patchValue(null);
+    // }
   }
 }
