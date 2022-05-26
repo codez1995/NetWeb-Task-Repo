@@ -1,0 +1,16 @@
+<h1>Electricity Form</h1>
+<form [formGroup]="electricityForm">
+    <div class="input-group mb-3">
+        <input type="text" class="formControl" placeholder="Enter UserName" formControlName="userName">
+    </div>
+    <div class="input-group mb-3">
+        <input type="number" class="formControl" placeholder="Enter Units" formControlName="units" (keyup)="calUnits()">
+    </div>
+    <div class="input-group mb-3">
+        <input type="number" class="formControl" placeholder="Enter Price" formControlName="pricePerUnit">
+    </div>
+    <div class="input-group mb-3">
+        <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+    </div>
+</form>
+

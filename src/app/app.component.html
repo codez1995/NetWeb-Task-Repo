@@ -1,0 +1,8 @@
+<div class="container page-container">
+  <div class="electricity-form-section">
+    <app-electricity-form (submitForm)="formSubmit($event)"></app-electricity-form>
+  </div>
+  <div class="electricity-table-section">
+    <app-electricity-table [formDataPush]="formDataPush"></app-electricity-table>
+  </div>
+</div>

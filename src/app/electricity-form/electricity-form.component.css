@@ -1,0 +1,12 @@
+input {
+    margin-top: 20px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    max-width: 400px;
+    width: 100%;
+}
+h1 {
+    font-size:30px;
+    color: slategray;
+}
