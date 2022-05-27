@@ -10,3 +10,10 @@ h1 {
     font-size:30px;
     color: slategray;
 }
+.alert-danger {
+    color:#fff;
+    background-color: red;
+}
+.alert {
+    padding:3px 6px;
+}

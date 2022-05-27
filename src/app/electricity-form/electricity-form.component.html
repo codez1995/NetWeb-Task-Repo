@@ -7,10 +7,14 @@
         <input type="number" class="formControl" placeholder="Enter Units" formControlName="units" (keyup)="calUnits()">
     </div>
     <div class="input-group mb-3">
-        <input type="number" class="formControl" placeholder="Enter Price" formControlName="pricePerUnit">
+        <input type="number" class="formControl" placeholder="Enter Price" formControlName="pricePerUnit" (keyup)="checkingUnits()">
     </div>
+    <div *ngIf="notifierShow" class="alert alert-danger" role="alert">
+        You enter a wrong price value of units range.
+      </div>
     <div class="input-group mb-3">
-        <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-success" [disabled]="notifierShow" (click)="onSubmit()">Submit</button>
     </div>
 </form>
+
 

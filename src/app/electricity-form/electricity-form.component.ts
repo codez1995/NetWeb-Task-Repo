@@ -10,6 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ElectricityFormComponent implements OnInit {
   electricityForm!: FormGroup;
   @Output() submitForm: EventEmitter<any> = new EventEmitter<any>();
+  notifierShow: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -28,7 +29,6 @@ export class ElectricityFormComponent implements OnInit {
   }
   calUnits(): any {
     let unit = this.electricityForm.value.units
-    if (unit.toString().length >= 3) {
       if (unit >= 0 && unit <= 100) {
         this.electricityForm.controls['pricePerUnit'].patchValue(2.25);
       }
@@ -38,15 +38,62 @@ export class ElectricityFormComponent implements OnInit {
       else if (unit >= 150 && unit <= 200) {
         this.electricityForm.controls['pricePerUnit'].patchValue(3.61);
       }
-      else if (unit >= 200 && unit <= 250) {
+      else if (unit >= 200 && unit <= 500) {
         this.electricityForm.controls['pricePerUnit'].patchValue(6.67);
       }
       else if (unit >= 500 && unit <= 1000) {
         this.electricityForm.controls['pricePerUnit'].patchValue(7.71);
       }
-    }
-    // else {
-    //   this.electricityForm.controls['pricePerUnit'].patchValue(null);
-    // }
+  }
+  checkingUnits(): any {
+    let unit = this.electricityForm.value.units;
+    let pricePerUnit = this.electricityForm.value.pricePerUnit;
+      if (unit >= 0 && unit <= 100) {
+        if(pricePerUnit == "2.25" && pricePerUnit.toString().replace(".","").length == 3) {
+          this.electricityForm.controls['pricePerUnit'].patchValue(2.25);
+          this.notifierShow = false;
+        }
+        else {
+          this.notifierShow = true;
+        }
+      }
+      else if (unit >= 100 && unit <= 150) {
+        if(pricePerUnit == "2.75" && pricePerUnit.toString().replace(".","").length == 3) {
+          this.electricityForm.controls['pricePerUnit'].patchValue(2.75);
+          this.notifierShow = false;
+        }
+        else {
+          this.notifierShow = true;
+        }
+      }
+      else if (unit >= 150 && unit <= 200) {
+        if(pricePerUnit == "3.61" && pricePerUnit.toString().replace(".","").length == 3) {
+          this.electricityForm.controls['pricePerUnit'].patchValue(3.61);
+          this.notifierShow = false;
+        }
+        else {
+          this.notifierShow = true;
+        }
+      }
+      else if (unit >= 200 && unit <= 500) {
+        if(pricePerUnit == "6.67" && pricePerUnit.toString().replace(".","").length == 3) {
+          this.electricityForm.controls['pricePerUnit'].patchValue(6.67);
+          this.notifierShow = false;
+        }
+        else {
+          this.notifierShow = true;
+        }
+      }
+      else if (unit >= 500 && unit <= 1000) {
+        if(pricePerUnit == "7.71" && pricePerUnit.toString().replace(".","").length == 3) {
+          this.electricityForm.controls['pricePerUnit'].patchValue(7.71);
+          this.notifierShow = false;
+        }
+        else {
+          this.notifierShow = true;
+        }
+        this.electricityForm.controls['pricePerUnit'].patchValue(7.71);
+      }
+
   }
 }
