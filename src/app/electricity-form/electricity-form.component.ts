@@ -26,6 +26,10 @@ export class ElectricityFormComponent implements OnInit {
   onSubmit(): any {
     if (this.electricityForm.valid)
       this.submitForm.emit(this.electricityForm.value);
+      setTimeout(() => {
+        this.electricityForm.controls["units"].patchValue(null);
+        this.electricityForm.controls["pricePerUnit"].patchValue(null);
+      }, 500);
   }
   calUnits(): any {
     let unit = this.electricityForm.value.units

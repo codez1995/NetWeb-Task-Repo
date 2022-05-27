@@ -13,7 +13,7 @@
         You enter a wrong price value of units range.
       </div>
     <div class="input-group mb-3">
-        <button class="btn btn-success" [disabled]="notifierShow" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-success" [disabled]="notifierShow || electricityForm.invalid" (click)="onSubmit()">Submit</button>
     </div>
 </form>
 
